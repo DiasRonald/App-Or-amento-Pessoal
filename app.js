@@ -55,22 +55,22 @@ class Bd {
     pesquisar(despesa) {
         let despesasFiltradas = this.recuperarTodosRegistros();
 
-        if (despesa.ano !== '') {
+        if (despesa.ano) {
             despesasFiltradas = despesasFiltradas.filter(d => d.ano == despesa.ano);
         }
-        if (despesa.mes !== '') {
+        if (despesa.mes) {
             despesasFiltradas = despesasFiltradas.filter(d => d.mes == despesa.mes);
         }
-        if (despesa.dia !== '') {
+        if (despesa.dia) {
             despesasFiltradas = despesasFiltradas.filter(d => d.dia == despesa.dia);
         }
-        if (despesa.tipo !== '') {
+        if (despesa.tipo) {
             despesasFiltradas = despesasFiltradas.filter(d => d.tipo == despesa.tipo);
         }
-        if (despesa.descricao !== '') {
-            despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.descricao);
+        if (despesa.descricao) {
+            despesasFiltradas = despesasFiltradas.filter(d => d.descricao.includes(despesa.descricao));
         }
-        if (despesa.valor !== '') {
+        if (despesa.valor) {
             despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor);
         }
         return despesasFiltradas;
@@ -167,7 +167,7 @@ function carregaListaDespesas(despesas = [], filtro = false) {
         btn.onclick = function () {
             let id = this.id.replace('id_despesa_', '');
             bd.remover(id);
-            carregaListaDespesas();  // Atualiza a lista após a remoção
+            c
         };
         linha.insertCell(4).appendChild(btn);
 
