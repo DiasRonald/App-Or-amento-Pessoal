@@ -166,8 +166,8 @@ function carregaListaDespesas(despesas = [], filtro = false) {
         btn.id = `id_despesa_${d.id}`;
         btn.onclick = function () {
             let id = this.id.replace('id_despesa_', '');
-            bd.remover(id);
-            c
+            bd.remover(id) 
+                carregaListaDespesas ()
         };
         linha.insertCell(4).appendChild(btn);
 
